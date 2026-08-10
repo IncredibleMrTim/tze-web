@@ -15,7 +15,10 @@ export default function Home() {
         tagline={`"Excellence is not a destination; Its a continuous journey that never ends"`}
       />
       <PageContainer>
-        <section id="about" className="py-20 px-8 bg-ep-card rounded-b-md">
+        <section
+          id="about"
+          className="pt-10 md:py-20 px-8 bg-ep-card rounded-b-md"
+        >
           <div className="max-w-300 mx-auto">
             <div className="grid grid-cols-1 nav:grid-cols-2 gap-10 nav:gap-20 items-center">
               <div>
@@ -78,7 +81,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-ep-card py-30 px-8 rounded-md">
+        <section className="bg-ep-card py-0 md:py-30 px-8 rounded-md">
           <div className="max-w-300 mx-auto">
             <div className="grid grid-cols-1 nav:grid-cols-2 gap-10 nav:gap-20 items-center">
               <div>
