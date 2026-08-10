@@ -9,7 +9,7 @@ export const HeroContactTemplate = () => {
               Tauranga Electroplaters
             </span>
           </div>
-          <h1 className="font-display font-extrabold text-[clamp(60px,80px,80px)] leading-[0.7] uppercase text-white m-0">
+          <h1 className="font-display font-extrabold text-[clamp(36px,16vw,80px)] leading-[0.7] uppercase text-white m-0 whitespace-nowrap">
             Contact Us
           </h1>
         </div>
