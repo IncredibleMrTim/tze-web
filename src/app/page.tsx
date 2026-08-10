@@ -1,6 +1,8 @@
+'use client'
+
 import { useState } from 'react'
-import { Link } from 'react-router'
-import { HERO_IMG, GOLD_HUB_IMG, BG, CARD, SECTION_ALT, TEXT, MUTED, BLUE, BLUE_MID, BLUE_LIGHT, BORDER, BORDER_SUBTLE, DIM } from '../lib/theme'
+import Link from 'next/link'
+import { HERO_IMG, GOLD_HUB_IMG, CARD, SECTION_ALT, TEXT, MUTED, BLUE, BLUE_MID, BLUE_LIGHT, BORDER, DIM } from '../lib/theme'
 
 const processSteps = [
   {
@@ -28,7 +30,6 @@ const processSteps = [
 export default function Home() {
   return (
     <>
-      {/* HERO */}
       <section style={{ position: 'relative', height: '100vh', minHeight: 600, overflow: 'hidden' }}>
         <img
           src={HERO_IMG}
@@ -56,7 +57,7 @@ export default function Home() {
           </p>
 
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <Link to="/contact"
+            <Link href="/contact"
               style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', backgroundColor: BLUE, padding: '14px 32px', textDecoration: 'none', transition: 'background-color 0.2s' }}
               onMouseEnter={e => (e.currentTarget.style.backgroundColor = BLUE_MID)}
               onMouseLeave={e => (e.currentTarget.style.backgroundColor = BLUE)}
@@ -70,7 +71,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BELIEF BANNER */}
       <section style={{ backgroundColor: BLUE, padding: '48px 32px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
           <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7eb3f0', flexShrink: 0 }}>What we believe in</span>
@@ -81,7 +81,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT */}
       <section id="about" style={{ padding: '120px 32px', backgroundColor: CARD }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }} className="two-col">
@@ -109,7 +108,7 @@ export default function Home() {
                 Getting things right initially — electrical current, time, chemical balance, surface preparation — paired with timely turnaround.
               </p>
 
-              <Link to="/contact"
+              <Link href="/contact"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', color: BLUE, textDecoration: 'none', borderBottom: `2px solid ${BLUE_LIGHT}`, paddingBottom: 3, transition: 'border-color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = BLUE)}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = BLUE_LIGHT)}
@@ -124,7 +123,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT WE DO */}
       <section style={{ backgroundColor: SECTION_ALT, padding: '120px 32px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }} className="two-col">
@@ -150,7 +148,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROCESS */}
       <section id="process" style={{ padding: '120px 32px', backgroundColor: CARD }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <SectionLabel>Process</SectionLabel>
@@ -197,7 +194,9 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   )
 }
 
-function ProcessStep({ step, num }: { step: { title: string; desc: string }; num: number }) {
+type ProcessStepData = { title: string; desc: string }
+
+function ProcessStep({ step, num }: { step: ProcessStepData; num: number }) {
   const [open, setOpen] = useState(num === 1)
   return (
     <div style={{ borderBottom: `1px solid ${BORDER}` }}>

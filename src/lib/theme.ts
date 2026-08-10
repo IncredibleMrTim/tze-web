@@ -1,15 +1,18 @@
-export const LOGO_IMG = 'https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e7ee6eda7eca16c778c2f02_lOGO.jpg'
-export const HERO_IMG = 'https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e7f15b1d75a9b2163f07f19_web1.jpg'
-export const GOLD_HUB_IMG = 'https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e7f17b429502f17c3b1cfb1_Gold_hub.JPG'
+export const LOGO_IMG =
+  "https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e7ee6eda7eca16c778c2f02_lOGO.jpg"
+export const HERO_IMG =
+  "https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e7f15b1d75a9b2163f07f19_web1.jpg"
+export const GOLD_HUB_IMG =
+  "https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e7f17b429502f17c3b1cfb1_Gold_hub.JPG"
 
-export const BG = '#f4f6f9'
-export const CARD = '#ffffff'
-export const SECTION_ALT = '#eef1f6'
-export const TEXT = '#1a2535'
-export const MUTED = '#4a6075'
-export const DIM = '#8a9db0'
-export const BLUE = '#1b3f72'
-export const BLUE_MID = '#2a5298'
-export const BLUE_LIGHT = '#e8eef8'
-export const BORDER = 'rgba(27,63,114,0.12)'
-export const BORDER_SUBTLE = 'rgba(27,63,114,0.07)'
+export const BG = "#f4f6f9"
+export const CARD = "#ffffff"
+export const SECTION_ALT = "#eef1f6"
+export const TEXT = "#1a2535"
+export const MUTED = "#4a6075"
+export const DIM = "#8a9db0"
+export const BLUE = "#1b3f72"
+export const BLUE_MID = "#2a5298"
+export const BLUE_LIGHT = "#e8eef8"
+export const BORDER = "rgba(27,63,114,0.12)"
+export const BORDER_SUBTLE = "rgba(27,63,114,0.07)"

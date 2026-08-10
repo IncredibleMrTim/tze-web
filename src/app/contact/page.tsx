@@ -1,5 +1,7 @@
+'use client'
+
 import { useState } from 'react'
-import { BLUE, BLUE_MID, BLUE_LIGHT, TEXT, MUTED, DIM, CARD, BORDER, BORDER_SUBTLE, SECTION_ALT } from '../lib/theme'
+import { BLUE, BLUE_MID, BLUE_LIGHT, TEXT, MUTED, DIM, CARD, BORDER, BORDER_SUBTLE, SECTION_ALT } from '../../lib/theme'
 
 const JON_IMG = 'https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e82d0ef40b6b8ff553146ff_jono.jpg'
 
@@ -167,7 +169,6 @@ export default function Contact() {
 
   return (
     <>
-      {/* PAGE HEADER */}
       <section style={{ backgroundColor: BLUE, paddingTop: 68 }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '80px 32px 72px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
@@ -187,7 +188,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* WHO TO CONTACT */}
       <section style={{ backgroundColor: SECTION_ALT, padding: '80px 32px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <SectionLabel>Who Should I Contact</SectionLabel>
@@ -202,7 +202,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* CONTACT FORM + DETAILS */}
       <section style={{ backgroundColor: CARD, padding: '80px 32px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }} className="two-col">
