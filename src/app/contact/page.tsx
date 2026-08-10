@@ -1,15 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { BLUE, BLUE_MID, BLUE_LIGHT, TEXT, MUTED, DIM, CARD, BORDER, BORDER_SUBTLE, SECTION_ALT } from '../../lib/theme'
 
 const JON_IMG = 'https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e82d0ef40b6b8ff553146ff_jono.jpg'
 
 function SectionLabel({ children, dark }: { children: React.ReactNode; dark?: boolean }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-      <div style={{ width: 24, height: 2, backgroundColor: dark ? '#7eb3f0' : BLUE_MID }} />
-      <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: dark ? '#7eb3f0' : BLUE_MID }}>
+    <div className="flex items-center gap-[10px] mb-[20px]">
+      <div className={`w-[24px] h-[2px] ${dark ? 'bg-ep-accent' : 'bg-ep-blue-mid'}`} />
+      <span className={`font-display font-bold text-[11px] tracking-[0.2em] uppercase ${dark ? 'text-ep-accent' : 'text-ep-blue-mid'}`}>
         {children}
       </span>
     </div>
@@ -17,19 +16,16 @@ function SectionLabel({ children, dark }: { children: React.ReactNode; dark?: bo
 }
 
 function InfoRow({ label, value, href, dark }: { label: string; value: string; href?: string; dark?: boolean }) {
-  const textColor = dark ? 'rgba(255,255,255,0.9)' : TEXT
-  const dimColor = dark ? 'rgba(255,255,255,0.45)' : DIM
-  const borderColor = dark ? 'rgba(255,255,255,0.1)' : BORDER_SUBTLE
+  const textColorClass = dark ? 'text-white/90' : 'text-ep-text'
+  const dimColorClass = dark ? 'text-white/45' : 'text-ep-dim'
+  const borderColorClass = dark ? 'border-white/10' : 'border-ep-blue/7'
   return (
-    <div style={{ display: 'flex', gap: 16, paddingBottom: 14, marginBottom: 14, borderBottom: `1px solid ${borderColor}` }}>
-      <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', color: dimColor, width: 72, flexShrink: 0, paddingTop: 2 }}>{label}</span>
+    <div className={`flex gap-[16px] pb-[14px] mb-[14px] border-b ${borderColorClass}`}>
+      <span className={`font-display font-semibold text-[11px] tracking-[0.15em] uppercase w-[72px] flex-shrink-0 pt-[2px] ${dimColorClass}`}>{label}</span>
       {href ? (
-        <a href={href} style={{ fontSize: 14, color: textColor, textDecoration: 'none', transition: 'opacity 0.2s' }}
-          onMouseEnter={e => (e.currentTarget.style.opacity = '0.6')}
-          onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-        >{value}</a>
+        <a href={href} className={`text-[14px] no-underline transition-opacity duration-200 hover:opacity-60 ${textColorClass}`}>{value}</a>
       ) : (
-        <span style={{ fontSize: 14, color: textColor }}>{value}</span>
+        <span className={`text-[14px] ${textColorClass}`}>{value}</span>
       )}
     </div>
   )
@@ -48,25 +44,25 @@ function PersonCard({ person }: {
   }
 }) {
   return (
-    <div style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}>
+    <div className="bg-ep-card border border-ep-blue/12">
       {person.photo && (
-        <img src={person.photo} alt={person.name} style={{ width: '100%', height: 280, objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
+        <img src={person.photo} alt={person.name} className="w-full h-[280px] object-cover object-top block" />
       )}
-      <div style={{ padding: '32px 36px 36px' }}>
-        <div style={{ marginBottom: 18 }}>
-          <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 24, textTransform: 'uppercase', letterSpacing: '0.02em', color: TEXT, marginBottom: 4 }}>{person.name}</h3>
-          <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: BLUE_MID, margin: 0 }}>{person.title}</p>
+      <div className="pt-[32px] px-[36px] pb-[36px]">
+        <div className="mb-[18px]">
+          <h3 className="font-display font-extrabold text-[24px] uppercase tracking-[0.02em] text-ep-text mb-[4px]">{person.name}</h3>
+          <p className="font-display font-semibold text-[12px] tracking-[0.12em] uppercase text-ep-blue-mid">{person.title}</p>
         </div>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
+        <div className="flex flex-wrap gap-[6px] mb-[20px]">
           {person.areas.map(area => (
-            <span key={area} style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: BLUE, backgroundColor: BLUE_LIGHT, padding: '4px 10px', border: `1px solid rgba(27,63,114,0.15)` }}>{area}</span>
+            <span key={area} className="font-display text-[11px] tracking-[0.1em] uppercase text-ep-blue bg-ep-blue-light px-[10px] py-[4px] border border-ep-blue/15">{area}</span>
           ))}
         </div>
 
-        <div style={{ marginBottom: 24 }}>
+        <div className="mb-[24px]">
           {person.bio.split('\n\n').map((para, i) => (
-            <p key={i} style={{ fontSize: 14, lineHeight: 1.85, color: MUTED, margin: i < person.bio.split('\n\n').length - 1 ? '0 0 14px' : '0' }}>{para}</p>
+            <p key={i} className="text-[14px] leading-[1.85] text-ep-muted mb-[14px] last:mb-0">{para}</p>
           ))}
         </div>
 
@@ -79,31 +75,19 @@ function PersonCard({ person }: {
   )
 }
 
+const fieldClass =
+  'w-full px-[16px] py-[12px] bg-ep-card border border-ep-blue/12 text-ep-text text-[14px] outline-none font-body transition-colors duration-200 focus:border-ep-blue'
+const labelClass = 'font-display text-[11px] tracking-[0.15em] uppercase text-ep-dim block mb-[6px]'
+
 function ContactForm() {
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
-  const inputStyle = {
-    width: '100%', padding: '12px 16px',
-    backgroundColor: CARD,
-    border: `1px solid ${BORDER}`,
-    color: TEXT, fontSize: 14, outline: 'none',
-    fontFamily: "'Inter', sans-serif",
-    transition: 'border-color 0.2s',
-  } as React.CSSProperties
-
-  const labelStyle = {
-    fontFamily: "'Barlow Condensed', sans-serif",
-    fontSize: 11, letterSpacing: '0.15em',
-    textTransform: 'uppercase' as const,
-    color: DIM, display: 'block', marginBottom: 6,
-  }
-
   if (sent) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 280, gap: 16, backgroundColor: BLUE_LIGHT, padding: 48, border: `1px solid ${BORDER}` }}>
-        <div style={{ width: 52, height: 52, border: `2px solid ${BLUE}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, color: BLUE }}>✓</div>
-        <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 17, textTransform: 'uppercase', letterSpacing: '0.04em', color: TEXT, textAlign: 'center' }}>
+      <div className="flex flex-col items-center justify-center min-h-[280px] gap-[16px] bg-ep-blue-light p-[48px] border border-ep-blue/12">
+        <div className="w-[52px] h-[52px] border-2 border-ep-blue flex items-center justify-center text-[22px] text-ep-blue">✓</div>
+        <p className="font-display font-bold text-[17px] uppercase tracking-[0.04em] text-ep-text text-center">
           Thank you! Your submission has been received!
         </p>
       </div>
@@ -111,36 +95,31 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={e => { e.preventDefault(); setSent(true) }} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+    <form onSubmit={e => { e.preventDefault(); setSent(true) }} className="flex flex-col gap-[16px]">
       <div>
-        <label style={labelStyle}>Name</label>
+        <label className={labelClass}>Name</label>
         <input required type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
-          style={inputStyle} placeholder="Your name"
-          onFocus={e => (e.target.style.borderColor = BLUE)}
-          onBlur={e => (e.target.style.borderColor = BORDER)}
+          className={fieldClass} placeholder="Your name"
         />
       </div>
       <div>
-        <label style={labelStyle}>Email Address</label>
+        <label className={labelClass}>Email Address</label>
         <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
-          style={inputStyle} placeholder="your@email.com"
-          onFocus={e => (e.target.style.borderColor = BLUE)}
-          onBlur={e => (e.target.style.borderColor = BORDER)}
+          className={fieldClass} placeholder="your@email.com"
         />
       </div>
       <div>
-        <label style={labelStyle}>Message</label>
+        <label className={labelClass}>Message</label>
         <textarea required rows={6} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
-          style={{ ...inputStyle, resize: 'vertical' }} placeholder="Your message…"
-          onFocus={e => (e.target.style.borderColor = BLUE)}
-          onBlur={e => (e.target.style.borderColor = BORDER)}
+          className={`${fieldClass} resize-y`} placeholder="Your message…"
         />
       </div>
-      <button type="submit"
-        style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', backgroundColor: BLUE, padding: '14px 32px', border: 'none', cursor: 'pointer', transition: 'background-color 0.2s', alignSelf: 'flex-start' }}
-        onMouseEnter={e => (e.currentTarget.style.backgroundColor = BLUE_MID)}
-        onMouseLeave={e => (e.currentTarget.style.backgroundColor = BLUE)}
-      >Contact Us</button>
+      <button
+        type="submit"
+        className="font-display font-bold text-[14px] tracking-[0.12em] uppercase text-white bg-ep-blue hover:bg-ep-blue-mid px-[32px] py-[14px] border-none cursor-pointer transition-colors duration-200 self-start"
+      >
+        Contact Us
+      </button>
     </form>
   )
 }
@@ -169,45 +148,46 @@ export default function Contact() {
 
   return (
     <>
-      <section style={{ backgroundColor: BLUE, paddingTop: 68 }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '80px 32px 72px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-            <div style={{ width: 24, height: 2, backgroundColor: '#7eb3f0' }} />
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7eb3f0' }}>Tauranga Electroplaters</span>
+      <section className="bg-ep-blue pt-[68px]">
+        <div className="max-w-[1200px] mx-auto pt-[80px] px-[32px] pb-[72px]">
+          <div className="inline-flex items-center gap-[10px] mb-[20px]">
+            <div className="w-[24px] h-[2px] bg-ep-accent" />
+            <span className="font-display font-bold text-[11px] tracking-[0.2em] uppercase text-ep-accent">Tauranga Electroplaters</span>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 24 }}>
-            <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(40px, 7vw, 80px)', lineHeight: 0.93, textTransform: 'uppercase', color: '#fff', margin: 0 }}>
+          <div className="flex justify-between items-end flex-wrap gap-[24px]">
+            <h1 className="font-display font-extrabold text-[clamp(40px,7vw,80px)] leading-[0.93] uppercase text-white m-0">
               Contact Us
             </h1>
-            <a href="tel:0755433176"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 'clamp(20px, 3vw, 32px)', letterSpacing: '0.02em', color: '#fff', textDecoration: 'none', transition: 'opacity 0.2s' }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
-              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-            >07 543 3176</a>
+            <a
+              href="tel:0755433176"
+              className="font-display font-bold text-[clamp(20px,3vw,32px)] tracking-[0.02em] text-white no-underline transition-opacity duration-200 hover:opacity-70"
+            >
+              07 543 3176
+            </a>
           </div>
         </div>
       </section>
 
-      <section style={{ backgroundColor: SECTION_ALT, padding: '80px 32px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+      <section className="bg-ep-section-alt py-[80px] px-[32px]">
+        <div className="max-w-[1200px] mx-auto">
           <SectionLabel>Who Should I Contact</SectionLabel>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: 0.95, textTransform: 'uppercase', color: TEXT, marginBottom: 48 }}>
+          <h2 className="font-display font-extrabold text-[clamp(28px,4vw,44px)] leading-[0.95] uppercase text-ep-text mb-[48px]">
             What We Are Best At
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }} className="two-col">
+          <div className="grid grid-cols-1 nav:grid-cols-2 gap-[32px] nav:gap-[24px]">
             <PersonCard person={jon} />
             <PersonCard person={matt} />
           </div>
         </div>
       </section>
 
-      <section style={{ backgroundColor: CARD, padding: '80px 32px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }} className="two-col">
+      <section className="bg-ep-card py-[80px] px-[32px]">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 nav:grid-cols-2 gap-[32px] nav:gap-[80px] items-start">
             <div>
               <SectionLabel>Get in Touch</SectionLabel>
-              <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: 0.95, textTransform: 'uppercase', color: TEXT, marginBottom: 36 }}>
+              <h2 className="font-display font-extrabold text-[clamp(28px,4vw,44px)] leading-[0.95] uppercase text-ep-text mb-[36px]">
                 Contact Us
               </h2>
               <ContactForm />
@@ -215,41 +195,35 @@ export default function Contact() {
 
             <div>
               <SectionLabel>Our Details</SectionLabel>
-              <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: 0.95, textTransform: 'uppercase', color: TEXT, marginBottom: 36 }}>
+              <h2 className="font-display font-extrabold text-[clamp(28px,4vw,44px)] leading-[0.95] uppercase text-ep-text mb-[36px]">
                 Find Us
               </h2>
 
-              <div style={{ marginBottom: 32 }}>
+              <div className="mb-[32px]">
                 <InfoRow label="Address" value="9/61 Maleme Street, Greerton, Tauranga, New Zealand" />
                 <InfoRow label="Phone" value="0064 7 543 3176" href="tel:006475433176" />
                 <InfoRow label="Email" value="sales@tgaelectroplaters.co.nz" href="mailto:sales@tgaelectroplaters.co.nz" />
               </div>
 
-              <div style={{ backgroundColor: SECTION_ALT, padding: '24px 28px', borderLeft: `3px solid ${BLUE}` }}>
-                <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', color: BLUE, marginBottom: 16 }}>Hours</p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${BORDER_SUBTLE}`, paddingBottom: 10, marginBottom: 10 }}>
-                  <span style={{ fontSize: 14, color: TEXT }}>Monday – Friday</span>
-                  <span style={{ fontSize: 14, color: BLUE, fontWeight: 600 }}>7:00 AM – 4:00 PM</span>
+              <div className="bg-ep-section-alt py-[24px] px-[28px] border-l-[3px] border-ep-blue">
+                <p className="font-display font-bold text-[13px] tracking-[0.12em] uppercase text-ep-blue mb-[16px]">Hours</p>
+                <div className="flex justify-between border-b border-ep-blue/7 pb-[10px] mb-[10px]">
+                  <span className="text-[14px] text-ep-text">Monday – Friday</span>
+                  <span className="text-[14px] text-ep-blue font-semibold">7:00 AM – 4:00 PM</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${BORDER_SUBTLE}`, paddingBottom: 10, marginBottom: 10 }}>
-                  <span style={{ fontSize: 14, color: TEXT }}>Saturday</span>
-                  <span style={{ fontSize: 14, color: MUTED }}>Closed</span>
+                <div className="flex justify-between border-b border-ep-blue/7 pb-[10px] mb-[10px]">
+                  <span className="text-[14px] text-ep-text">Saturday</span>
+                  <span className="text-[14px] text-ep-muted">Closed</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: 14, color: TEXT }}>Sunday</span>
-                  <span style={{ fontSize: 14, color: MUTED }}>Closed</span>
+                <div className="flex justify-between">
+                  <span className="text-[14px] text-ep-text">Sunday</span>
+                  <span className="text-[14px] text-ep-muted">Closed</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .two-col { grid-template-columns: 1fr !important; gap: 32px !important; }
-        }
-      `}</style>
     </>
   )
 }

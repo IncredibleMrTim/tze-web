@@ -20,6 +20,21 @@
 
   --font-display: 'Barlow Condensed', sans-serif;
   --font-body: 'Inter', sans-serif;
+
+  /* Brand palette (Tauranga Electroplaters) */
+  --color-ep-bg: #f4f6f9;
+  --color-ep-card: #ffffff;
+  --color-ep-section-alt: #eef1f6;
+  --color-ep-text: #1a2535;
+  --color-ep-muted: #4a6075;
+  --color-ep-dim: #8a9db0;
+  --color-ep-blue: #1b3f72;
+  --color-ep-blue-mid: #2a5298;
+  --color-ep-blue-light: #e8eef8;
+  --color-ep-accent: #7eb3f0;
+
+  /* Nav collapse breakpoint (matches the original design's 900px cutoff) */
+  --breakpoint-nav: 900px;
 }
 
 * {

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { HERO_IMG, GOLD_HUB_IMG, CARD, SECTION_ALT, TEXT, MUTED, BLUE, BLUE_MID, BLUE_LIGHT, BORDER, DIM } from '../lib/theme'
+import { HERO_IMG, GOLD_HUB_IMG } from '../lib/theme'
 
 const processSteps = [
   {
@@ -30,164 +30,163 @@ const processSteps = [
 export default function Home() {
   return (
     <>
-      <section style={{ position: 'relative', height: '100vh', minHeight: 600, overflow: 'hidden' }}>
+      <section className="relative h-screen min-h-[600px] overflow-hidden">
         <img
           src={HERO_IMG}
           alt="Zinc-plated steel flanges and hubs"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(120deg, rgba(12,28,58,0.82) 0%, rgba(27,63,114,0.52) 50%, rgba(0,0,0,0.08) 100%)' }} />
+        <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(12,28,58,0.82)_0%,rgba(27,63,114,0.52)_50%,rgba(0,0,0,0.08)_100%)]" />
 
-        <div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: '0 32px', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: 88 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
-            <div style={{ width: 32, height: 2, backgroundColor: '#7eb3f0' }} />
-            <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#7eb3f0' }}>
+        <div className="relative max-w-[1200px] mx-auto px-[32px] h-full flex flex-col justify-end pb-[88px]">
+          <div className="inline-flex items-center gap-[10px] mb-[24px]">
+            <div className="w-[32px] h-[2px] bg-ep-accent" />
+            <span className="font-display font-semibold text-[12px] tracking-[0.22em] uppercase text-ep-accent">
               Tauranga Electroplaters
             </span>
           </div>
 
-          <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(48px, 9vw, 108px)', lineHeight: 0.93, letterSpacing: '-0.01em', textTransform: 'uppercase', maxWidth: 820, marginBottom: 28, color: '#fff' }}>
+          <h1 className="font-display font-extrabold text-[clamp(48px,9vw,108px)] leading-[0.93] tracking-[-0.01em] uppercase max-w-[820px] mb-[28px] text-white">
             Zinc<br />
-            <span style={{ color: '#7eb3f0' }}>Electro</span>plating<br />
+            <span className="text-ep-accent">Electro</span>plating<br />
             Specialist
           </h1>
 
-          <p style={{ fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.8)', maxWidth: 520, marginBottom: 44, fontStyle: 'italic' }}>
+          <p className="text-[18px] leading-[1.7] text-white/80 max-w-[520px] mb-[44px] italic">
             "Excellence is not a destination; Its a continuous journey that never ends"
           </p>
 
-          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <Link href="/contact"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', backgroundColor: BLUE, padding: '14px 32px', textDecoration: 'none', transition: 'background-color 0.2s' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = BLUE_MID)}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = BLUE)}
-            >Contact Us</Link>
-            <a href="#about"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 14, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', border: '1px solid rgba(255,255,255,0.4)', padding: '14px 32px', textDecoration: 'none', transition: 'border-color 0.2s, background-color 0.2s' }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#fff'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)' }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; e.currentTarget.style.backgroundColor = 'transparent' }}
-            >About Us</a>
+          <div className="flex gap-[14px] flex-wrap">
+            <Link
+              href="/contact"
+              className="font-display font-bold text-[14px] tracking-[0.12em] uppercase text-white bg-ep-blue hover:bg-ep-blue-mid px-[32px] py-[14px] no-underline transition-colors duration-200"
+            >
+              Contact Us
+            </Link>
+            <a
+              href="#about"
+              className="font-display font-bold text-[14px] tracking-[0.12em] uppercase text-white border border-white/40 hover:border-white hover:bg-white/10 px-[32px] py-[14px] no-underline transition-colors duration-200"
+            >
+              About Us
+            </a>
           </div>
         </div>
       </section>
 
-      <section style={{ backgroundColor: BLUE, padding: '48px 32px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
-          <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7eb3f0', flexShrink: 0 }}>What we believe in</span>
-          <div style={{ width: 1, height: 32, backgroundColor: 'rgba(255,255,255,0.2)', flexShrink: 0 }} className="divider-line" />
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', margin: 0 }}>
+      <section className="bg-ep-blue py-[48px] px-[32px]">
+        <div className="max-w-[1200px] mx-auto flex items-center gap-[24px] flex-wrap">
+          <span className="font-display font-bold text-[13px] tracking-[0.2em] uppercase text-ep-accent flex-shrink-0">
+            What we believe in
+          </span>
+          <div className="hidden nav:block w-px h-[32px] bg-white/20 flex-shrink-0" />
+          <p className="text-[17px] leading-[1.6] text-white/85 italic">
             "Excellence is not a destination; Its a continuous journey that never ends"
           </p>
         </div>
       </section>
 
-      <section id="about" style={{ padding: '120px 32px', backgroundColor: CARD }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }} className="two-col">
+      <section id="about" className="py-[120px] px-[32px] bg-ep-card">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 nav:grid-cols-2 gap-[40px] nav:gap-[80px] items-center">
             <div>
               <SectionLabel>About Us</SectionLabel>
-              <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(36px, 5vw, 56px)', lineHeight: 0.95, textTransform: 'uppercase', marginBottom: 16, color: TEXT }}>
-                About Tauranga<br /><span style={{ color: BLUE }}>Electroplaters</span>
+              <h2 className="font-display font-extrabold text-[clamp(36px,5vw,56px)] leading-[0.95] uppercase mb-[16px] text-ep-text">
+                About Tauranga<br /><span className="text-ep-blue">Electroplaters</span>
               </h2>
 
-              <blockquote style={{ margin: '0 0 28px', padding: '16px 20px', borderLeft: `3px solid ${BLUE}`, backgroundColor: BLUE_LIGHT }}>
-                <p style={{ fontSize: 17, lineHeight: 1.6, color: TEXT, fontStyle: 'italic', margin: '0 0 6px' }}>"Quality isn&apos;t an act it&apos;s a habbit"</p>
-                <cite style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: BLUE_MID, fontStyle: 'normal' }}>Aristotle 384 B.C.</cite>
+              <blockquote className="mb-[28px] py-[16px] px-[20px] border-l-[3px] border-ep-blue bg-ep-blue-light">
+                <p className="text-[17px] leading-[1.6] text-ep-text italic mb-[6px]">"Quality isn&apos;t an act it&apos;s a habbit"</p>
+                <cite className="font-display text-[12px] tracking-[0.12em] uppercase text-ep-blue-mid not-italic">Aristotle 384 B.C.</cite>
               </blockquote>
 
-              <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 15, textTransform: 'uppercase', letterSpacing: '0.06em', color: BLUE, marginBottom: 10 }}>The History</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.85, color: MUTED, marginBottom: 24 }}>
+              <h3 className="font-display font-bold text-[15px] uppercase tracking-[0.06em] text-ep-blue mb-[10px]">The History</h3>
+              <p className="text-[15px] leading-[1.85] text-ep-muted mb-[24px]">
                 Realised in 1999 by Rob Jennings Developments as a solution to guarantee quality and delivery — establishing a Bay of Plenty alternative to Auckland services.
               </p>
 
-              <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 15, textTransform: 'uppercase', letterSpacing: '0.06em', color: BLUE, marginBottom: 10 }}>What we can do to improve it</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.85, color: MUTED, marginBottom: 20 }}>
+              <h3 className="font-display font-bold text-[15px] uppercase tracking-[0.06em] text-ep-blue mb-[10px]">What we can do to improve it</h3>
+              <p className="text-[15px] leading-[1.85] text-ep-muted mb-[20px]">
                 Co-owners Matt Smart and Jonathan Moynan took over in May 2018, bringing 50 years of combined mechanical engineering, management, practical and operational experience.
               </p>
-              <p style={{ fontSize: 15, lineHeight: 1.85, color: MUTED, marginBottom: 36 }}>
+              <p className="text-[15px] leading-[1.85] text-ep-muted mb-[36px]">
                 Getting things right initially — electrical current, time, chemical balance, surface preparation — paired with timely turnaround.
               </p>
 
-              <Link href="/contact"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', color: BLUE, textDecoration: 'none', borderBottom: `2px solid ${BLUE_LIGHT}`, paddingBottom: 3, transition: 'border-color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = BLUE)}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = BLUE_LIGHT)}
-              >Contact Us →</Link>
+              <Link
+                href="/contact"
+                className="font-display font-bold text-[13px] tracking-[0.12em] uppercase text-ep-blue no-underline border-b-2 border-ep-blue-light hover:border-ep-blue pb-[3px] transition-colors duration-200"
+              >
+                Contact Us →
+              </Link>
             </div>
 
-            <div style={{ position: 'relative' }}>
-              <div style={{ position: 'absolute', top: -12, right: -12, width: '100%', height: '100%', border: `2px solid ${BLUE_LIGHT}`, pointerEvents: 'none' }} />
-              <img src={GOLD_HUB_IMG} alt="Gold plated hub components" style={{ width: '100%', height: 460, objectFit: 'cover', display: 'block', position: 'relative' }} />
+            <div className="relative">
+              <div className="absolute -top-[12px] -right-[12px] w-full h-full border-2 border-ep-blue-light pointer-events-none" />
+              <img src={GOLD_HUB_IMG} alt="Gold plated hub components" className="w-full h-[460px] object-cover block relative" />
             </div>
           </div>
         </div>
       </section>
 
-      <section style={{ backgroundColor: SECTION_ALT, padding: '120px 32px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }} className="two-col">
+      <section className="bg-ep-section-alt py-[120px] px-[32px]">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 nav:grid-cols-2 gap-[40px] nav:gap-[80px] items-center">
             <div>
               <SectionLabel>What We Do</SectionLabel>
-              <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(36px, 5vw, 56px)', lineHeight: 0.95, textTransform: 'uppercase', marginBottom: 28, color: TEXT }}>
+              <h2 className="font-display font-extrabold text-[clamp(36px,5vw,56px)] leading-[0.95] uppercase mb-[28px] text-ep-text">
                 Electroplating
               </h2>
-              <p style={{ fontSize: 16, lineHeight: 1.85, color: MUTED, marginBottom: 36 }}>
+              <p className="text-[16px] leading-[1.85] text-ep-muted mb-[36px]">
                 Depositing material onto steel alloys, copper or brass using electricity — improving wear resistance, corrosion protection or aesthetic appeal.
               </p>
-              <a href="#process"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fff', backgroundColor: BLUE, padding: '12px 28px', textDecoration: 'none', display: 'inline-block', transition: 'background-color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = BLUE_MID)}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = BLUE)}
-              >Learn More</a>
+              <a
+                href="#process"
+                className="font-display font-bold text-[13px] tracking-[0.12em] uppercase text-white bg-ep-blue hover:bg-ep-blue-mid px-[28px] py-[12px] no-underline inline-block transition-colors duration-200"
+              >
+                Learn More
+              </a>
             </div>
-            <div style={{ position: 'relative' }}>
-              <img src={HERO_IMG} alt="Zinc-plated components" style={{ width: '100%', height: 360, objectFit: 'cover', display: 'block' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top right, rgba(27,63,114,0.2), transparent)' }} />
+            <div className="relative">
+              <img src={HERO_IMG} alt="Zinc-plated components" className="w-full h-[360px] object-cover block" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top_right,rgba(27,63,114,0.2),transparent)]" />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="process" style={{ padding: '120px 32px', backgroundColor: CARD }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+      <section id="process" className="py-[120px] px-[32px] bg-ep-card">
+        <div className="max-w-[1200px] mx-auto">
           <SectionLabel>Process</SectionLabel>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56, flexWrap: 'wrap', gap: 24 }}>
-            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(36px, 5vw, 56px)', lineHeight: 0.95, textTransform: 'uppercase', color: TEXT }}>
-              What Process Can We Do<br /><span style={{ color: BLUE }}>At Tauranga Electroplaters</span>
+          <div className="flex justify-between items-end mb-[56px] flex-wrap gap-[24px]">
+            <h2 className="font-display font-extrabold text-[clamp(36px,5vw,56px)] leading-[0.95] uppercase text-ep-text">
+              What Process Can We Do<br /><span className="text-ep-blue">At Tauranga Electroplaters</span>
             </h2>
-            <p style={{ fontSize: 15, lineHeight: 1.75, color: MUTED, maxWidth: 320 }}>
+            <p className="text-[15px] leading-[1.75] text-ep-muted max-w-[320px]">
               All you need to know about zinc electroplating — where it came from and how it works.
             </p>
           </div>
 
-          <div style={{ marginBottom: 48, padding: '28px 32px', backgroundColor: SECTION_ALT, borderLeft: `4px solid ${BLUE}` }}>
-            <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 15, textTransform: 'uppercase', letterSpacing: '0.08em', color: BLUE, marginBottom: 10 }}>Where Did It Come From</h3>
-            <p style={{ fontSize: 15, lineHeight: 1.85, color: MUTED, margin: 0 }}>
+          <div className="mb-[48px] py-[28px] px-[32px] bg-ep-section-alt border-l-4 border-ep-blue">
+            <h3 className="font-display font-bold text-[15px] uppercase tracking-[0.08em] text-ep-blue mb-[10px]">Where Did It Come From</h3>
+            <p className="text-[15px] leading-[1.85] text-ep-muted">
               Luigi Valentino Brugnatelli first electroplated gold in 1805 using Alessandro Volta&apos;s voltaic pile. The patent was issued in 1840, and the process evolved across Europe into what Tauranga Electroplaters uses today.
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+          <div className="flex flex-col">
             {processSteps.map((step, i) => <ProcessStep key={step.title} step={step} num={i + 1} />)}
           </div>
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .divider-line { display: none; }
-        }
-      `}</style>
     </>
   )
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-      <div style={{ width: 24, height: 2, backgroundColor: BLUE_MID }} />
-      <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: BLUE_MID }}>
+    <div className="flex items-center gap-[10px] mb-[20px]">
+      <div className="w-[24px] h-[2px] bg-ep-blue-mid" />
+      <span className="font-display font-bold text-[11px] tracking-[0.2em] uppercase text-ep-blue-mid">
         {children}
       </span>
     </div>
@@ -199,19 +198,19 @@ type ProcessStepData = { title: string; desc: string }
 function ProcessStep({ step, num }: { step: ProcessStepData; num: number }) {
   const [open, setOpen] = useState(num === 1)
   return (
-    <div style={{ borderBottom: `1px solid ${BORDER}` }}>
+    <div className="border-b border-ep-blue/12">
       <button
         onClick={() => setOpen(!open)}
-        style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 0', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}
+        className="w-full flex items-center justify-between py-[20px] bg-transparent border-none cursor-pointer text-left"
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-          <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 12, color: open ? BLUE : DIM, letterSpacing: '0.1em', width: 24, flexShrink: 0 }}>0{num}</span>
-          <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 20, textTransform: 'uppercase', letterSpacing: '0.03em', color: open ? BLUE : TEXT }}>{step.title}</span>
+        <div className="flex items-center gap-[20px]">
+          <span className={`font-display font-bold text-[12px] tracking-[0.1em] w-[24px] flex-shrink-0 ${open ? 'text-ep-blue' : 'text-ep-dim'}`}>0{num}</span>
+          <span className={`font-display font-bold text-[20px] uppercase tracking-[0.03em] ${open ? 'text-ep-blue' : 'text-ep-text'}`}>{step.title}</span>
         </div>
-        <span style={{ color: open ? BLUE : DIM, fontSize: 20, lineHeight: 1, flexShrink: 0, marginLeft: 16 }}>{open ? '−' : '+'}</span>
+        <span className={`text-[20px] leading-none flex-shrink-0 ml-[16px] ${open ? 'text-ep-blue' : 'text-ep-dim'}`}>{open ? '−' : '+'}</span>
       </button>
       {open && (
-        <p style={{ fontSize: 15, lineHeight: 1.85, color: MUTED, paddingBottom: 24, paddingLeft: 44, margin: 0 }}>
+        <p className="text-[15px] leading-[1.85] text-ep-muted pb-[24px] pl-[44px]">
           {step.desc}
         </p>
       )}
