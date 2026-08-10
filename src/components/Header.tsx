@@ -1,52 +1,48 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { LOGO_IMG } from '../lib/theme'
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Logo } from "./Logo";
 
 const navLinks = [
-  { label: 'About', href: '/#about' },
-  { label: 'Process', href: '/#process' },
-  { label: 'Contact', href: '/contact' },
-]
+  { label: "About", href: "/#about" },
+  { label: "Process", href: "/process" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const pathname = usePathname()
-  const isContact = pathname === '/contact'
-  const solid = scrolled || isContact
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const solid = scrolled;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', onScroll)
-    if (isContact) setScrolled(true)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [isContact])
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinkClass = `font-display font-semibold text-[13px] tracking-[0.12em] uppercase no-underline transition-colors duration-200 ${
-    solid ? 'text-ep-muted hover:text-ep-blue' : 'text-white/82 hover:text-white'
-  }`
+    solid
+      ? "text-ep-muted hover:text-ep-blue"
+      : "text-white/82 hover:text-white"
+  }`;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-[12px] transition-all duration-[350ms] ease-in-out ${
-        solid ? 'border-b border-ep-blue/12 bg-white/96' : 'border-b border-white/15 bg-black/25'
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-350 ease-in-out ${
+        solid
+          ? "border-b border-ep-blue/12 bg-white/90 shadow-md"
+          : "border-b border-white/15 bg-black/25"
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-[32px] h-[68px] flex items-center justify-between">
+      <div className="max-w-300 mx-auto px-8 h-17 flex items-center justify-between">
         <Link href="/" className="no-underline flex items-center">
-          <img
-            src={LOGO_IMG}
-            alt="Tauranga Electroplaters"
-            className={`h-[42px] w-auto object-contain ${solid ? '' : 'brightness-0 invert'}`}
-          />
+          <Logo className="h-12 w-auto" white={!solid} />
         </Link>
 
-        <nav className="hidden nav:flex gap-[32px] items-center">
-          {navLinks.map(link =>
-            link.href.startsWith('/#') ? (
+        <nav className="hidden nav:flex gap-8 items-center">
+          {navLinks.map((link) =>
+            link.href.startsWith("/#") ? (
               <a key={link.label} href={link.href} className={navLinkClass}>
                 {link.label}
               </a>
@@ -58,7 +54,7 @@ export default function Header() {
           )}
           <Link
             href="/contact"
-            className="font-display font-bold text-[13px] tracking-[0.1em] uppercase text-white bg-ep-blue hover:bg-ep-blue-mid px-[20px] py-[9px] no-underline transition-colors duration-200"
+            className="font-display font-bold text-[13px] tracking-widest uppercase text-white bg-ep-blue hover:bg-ep-blue-mid px-5 py-2.25 no-underline transition-colors duration-200"
           >
             Contact Us
           </Link>
@@ -66,35 +62,35 @@ export default function Header() {
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="bg-transparent border-none cursor-pointer p-[8px] flex nav:hidden"
+          className="bg-transparent border-none cursor-pointer p-2 flex nav:hidden"
           aria-label="Toggle menu"
         >
-          {[0, 1, 2].map(i => (
+          {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className={`w-[22px] h-[2px] transition-all duration-200 ${solid ? 'bg-ep-text' : 'bg-white'} ${
-                i < 2 ? 'mb-[5px]' : 'mb-0'
+              className={`w-5.5 h-0.5 transition-all duration-200 ${solid ? "bg-ep-text" : "bg-white"} ${
+                i < 2 ? "mb-1.25" : "mb-0"
               } ${
                 menuOpen && i === 0
-                  ? 'rotate-45 translate-y-[7px]'
+                  ? "rotate-45 translate-y-1.75"
                   : menuOpen && i === 2
-                    ? '-rotate-45 -translate-y-[7px]'
-                    : ''
-              } ${menuOpen && i === 1 ? 'opacity-0' : 'opacity-100'}`}
+                    ? "-rotate-45 -translate-y-1.75"
+                    : ""
+              } ${menuOpen && i === 1 ? "opacity-0" : "opacity-100"}`}
             />
           ))}
         </button>
       </div>
 
       {menuOpen && (
-        <div className="bg-ep-card border-t border-ep-blue/12 pt-[16px] px-[32px] pb-[24px]">
-          {navLinks.map(link =>
-            link.href.startsWith('/#') ? (
+        <div className="bg-ep-card border-t border-ep-blue/12 pt-4 px-8 pb-6">
+          {navLinks.map((link) =>
+            link.href.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block font-display font-semibold text-[15px] tracking-[0.12em] uppercase text-ep-muted no-underline py-[10px] border-b border-ep-blue/7"
+                className="block font-display font-semibold text-[15px] tracking-[0.12em] uppercase text-ep-muted no-underline py-2.5 border-b border-ep-blue/7"
               >
                 {link.label}
               </a>
@@ -103,7 +99,7 @@ export default function Header() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block font-display font-semibold text-[15px] tracking-[0.12em] uppercase text-ep-muted no-underline py-[10px] border-b border-ep-blue/7"
+                className="block font-display font-semibold text-[15px] tracking-[0.12em] uppercase text-ep-muted no-underline py-2.5 border-b border-ep-blue/7"
               >
                 {link.label}
               </Link>
@@ -112,5 +108,5 @@ export default function Header() {
         </div>
       )}
     </header>
-  )
+  );
 }

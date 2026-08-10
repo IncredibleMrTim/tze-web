@@ -1,23 +1,27 @@
-import type { Metadata } from 'next'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import './globals.css'
+import type { Metadata } from "next";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Tauranga Electroplaters | Zinc Electroplating Specialist',
+  title: "Tauranga Electroplaters | Zinc Electroplating Specialist",
   description:
-    'This web application enhances user experience for electroplating services, offering streamlined navigation and clear information for customers seeking quality solutions.',
+    "This web application enhances user experience for electroplating services, offering streamlined navigation and clear information for customers seeking quality solutions.",
   robots: { index: false, follow: false },
-}
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className="font-body bg-ep-bg text-ep-text min-h-screen">
+      <body className="font-body bg-ep-card md:bg-ep-section-alt text-ep-text min-h-screen">
         <Header />
         {children}
         <Footer />
       </body>
     </html>
-  )
+  );
 }
