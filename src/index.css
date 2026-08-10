@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: #f4f5f2;
+  --color-foreground: #1c2128;
+  --color-card: #ffffff;
+  --color-card-foreground: #1c2128;
+  --color-primary: #1c2128;
+  --color-primary-foreground: #f4f5f2;
+  --color-secondary: #eaecea;
+  --color-secondary-foreground: #4a5360;
+  --color-muted: #edf0ee;
+  --color-muted-foreground: #7a8a8f;
+  --color-accent: #c8d62e;
+  --color-accent-foreground: #1c2128;
+  --color-border: rgba(28,33,40,0.1);
+  --color-ring: #c8d62e;
+  --radius: 2px;
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f4f5f2;
+  color: #1c2128;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(220,230,237,0.15);
+  border-radius: 2px;
+}
