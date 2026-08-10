@@ -16,21 +16,16 @@ export const HeroContactTemplate = () => {
         <div className="flex flex-col justify-start items-start flex-wrap gap-1">
           <a
             href="tel:0755433176"
-            className="font-display font-bold text-[clamp(20px,3vw,32px)] tracking-[0.02em] text-white no-underline transition-opacity duration-200 hover:opacity-70"
+            className="flex gap-2 font-display font-bold text-[clamp(20px,3vw,32px)] tracking-[0.02em] text-ep-accent text-shadow-sm text-shadow-black/40 no-underline transition-opacity duration-200 hover:opacity-70"
           >
-            <div className="flex gap-2 text-ep-accent text-shadow-sm text-shadow-black/40">
-              Tel: <span className="text-white">07 543 3176</span>
-            </div>
+            Tel: <span className="text-white">07 543 3176</span>
+          </a>
 
-            <div className="flex gap-2 text-ep-accent text-shadow-sm text-shadow-black/40">
-              Email:
-              <a
-                href="mailto:sales@tgaelectroplaters.co.nz"
-                className="text-white"
-              >
-                sales@tgaelectroplaters.co.nz
-              </a>
-            </div>
+          <a
+            href="mailto:sales@tgaelectroplaters.co.nz"
+            className="flex gap-2 font-display font-bold text-[clamp(20px,3vw,32px)] tracking-[0.02em] text-ep-accent text-shadow-sm text-shadow-black/40 no-underline transition-opacity duration-200 hover:opacity-70"
+          >
+            Email: <span className="text-white">sales@tgaelectroplaters.co.nz</span>
           </a>
         </div>
       </div>

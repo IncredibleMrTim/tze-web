@@ -100,7 +100,7 @@ function PersonCard({
           {person.areas.map((area) => (
             <span
               key={area}
-              className="font-display text-[11px] tracking-[0.1em] uppercase text-ep-blue bg-ep-blue-light px-2.5 py-1 border border-ep-blue/15"
+              className="font-display text-[11px] tracking-widest uppercase text-ep-blue bg-ep-blue-light px-2.5 py-1 border border-ep-blue/15"
             >
               {area}
             </span>
@@ -235,7 +235,7 @@ export default function Contact() {
         tagline={`"Excellence is not a destination; Its a continuous journey that never ends"`}
       />
       <div className="flex flex-col gap-4 md:gap-10 pb-0 md:pb-10">
-        <section className="bg-ep-card py-20  md:py-20 px-8 max-w-300 mx-auto rounded-b-md">
+        <section className="bg-ep-card pt-20 px-8 max-w-300 mx-auto rounded-b-md">
           <div className="max-w-300 mx-auto">
             <SectionLabel>Who Should I Contact</SectionLabel>
             <h2 className="font-display font-extrabold text-[clamp(28px,4vw,44px)] leading-[0.95] uppercase text-ep-text mb-12">
