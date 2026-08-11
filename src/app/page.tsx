@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { HERO_IMG, GOLD_HUB_IMG } from "../lib/theme";
+import { HERO_HOME, GOLD_HUB_IMG } from "../lib/theme";
 import { PageContainer } from "@/components/PageContainer";
 import { Hero } from "@/components/hero/Hero";
 import { TaglineBanner } from "@/components/hero/TaglineBanner";
@@ -103,7 +103,7 @@ export default function Home() {
               </div>
               <div className="relative">
                 <img
-                  src={HERO_IMG}
+                  src={HERO_HOME}
                   alt="Zinc-plated components"
                   className="w-full h-90 object-cover block"
                 />

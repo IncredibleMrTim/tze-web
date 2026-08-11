@@ -1,5 +1,5 @@
-export const HERO_IMG =
-  "https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e7f15b1d75a9b2163f07f19_web1.jpg";
-export const GOLD_HUB_IMG =
-  "https://uploads-ssl.webflow.com/5e7ede0fdad44d463c245380/5e7f17b429502f17c3b1cfb1_Gold_hub.JPG";
-export const HERO_CONTACT = "/hero-contact.jpg";
+export const HERO_HOME = "/hero_home_1_1x.webp";
+export const HERO_CONTACT = "/hero_contact_1_1x.webp";
+export const GOLD_HUB_IMG = "/gold_hub_1_1x.webp";
+export const PROFILE_JONO = "/jono_1_1x.webp";
+export const PLACEHOLDER_IMG = "/placeholder_1_1x.webp";

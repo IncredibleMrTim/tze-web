@@ -1,5 +1,5 @@
 "use client";
-
+import { RiMenu4Line } from "react-icons/ri";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
@@ -29,15 +29,15 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-350 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ease-in-out ${
         solid
           ? "border-b border-ep-blue/12 bg-white/90 shadow-md"
           : "border-b border-white/15 bg-black/25"
       }`}
     >
-      <div className="max-w-300 mx-auto px-8 h-17 flex items-center justify-between">
+      <div className="max-w-300 mx-auto px-4 md:px-8 h-17 flex items-center justify-between">
         <Link href="/" className="no-underline flex items-center">
-          <Logo className="h-12 w-auto" white={!solid} />
+          <Logo className="h-14 w-auto" white={!solid} />
         </Link>
 
         <nav className="hidden nav:flex gap-8 items-center">
@@ -65,48 +65,51 @@ export default function Header() {
           className="bg-transparent border-none cursor-pointer p-2 flex nav:hidden"
           aria-label="Toggle menu"
         >
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className={`w-5.5 h-0.5 transition-all duration-200 ${solid ? "bg-ep-text" : "bg-white"} ${
-                i < 2 ? "mb-1.25" : "mb-0"
-              } ${
-                menuOpen && i === 0
-                  ? "rotate-45 translate-y-1.75"
-                  : menuOpen && i === 2
-                    ? "-rotate-45 -translate-y-1.75"
-                    : ""
-              } ${menuOpen && i === 1 ? "opacity-0" : "opacity-100"}`}
-            />
-          ))}
+          <RiMenu4Line
+            size={32}
+            color="white"
+            className={`transition-transform duration-300 ease-in-out ${
+              menuOpen ? "scale-x-[-1]" : ""
+            }`}
+          />
         </button>
       </div>
 
-      {menuOpen && (
-        <div className="bg-ep-card border-t border-ep-blue/12 pt-4 px-8 pb-6">
-          {navLinks.map((link) =>
-            link.href.startsWith("/#") ? (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block font-display font-semibold text-[15px] tracking-[0.12em] uppercase text-ep-muted no-underline py-2.5 border-b border-ep-blue/7"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block font-display font-semibold text-[15px] tracking-[0.12em] uppercase text-ep-muted no-underline py-2.5 border-b border-ep-blue/7"
-              >
-                {link.label}
-              </Link>
-            ),
-          )}
+      <div
+        className={`grid overflow-hidden transition-[grid-template-rows] duration-200 ease-in-out ${
+          menuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div
+            className={`bg-ep-card border-t border-ep-blue/12 pt-4 px-8 pb-6 transition-opacity duration-200 ease-in-out ${
+              menuOpen ? "opacity-85 delay-50" : "opacity-0"
+            }`}
+          >
+            {navLinks.map((link) =>
+              link.href.startsWith("/#") ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block font-display font-semibold text-[15px] tracking-[0.12em] uppercase text-ep-muted no-underline py-2.5 border-b border-ep-blue/7"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block font-display font-semibold text-[15px] tracking-[0.12em] uppercase text-ep-muted no-underline py-2.5 border-b border-ep-blue/7"
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
+          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
