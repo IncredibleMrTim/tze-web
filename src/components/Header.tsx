@@ -67,8 +67,8 @@ export default function Header() {
         >
           <RiMenu4Line
             size={32}
-            color="white"
-            className={`transition-transform duration-300 ease-in-out ${
+            color={solid ? "black" : "white"}
+            className={`transition-all duration-300 ease-in-out ${
               menuOpen ? "scale-x-[-1]" : ""
             }`}
           />
