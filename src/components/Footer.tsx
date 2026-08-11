@@ -14,10 +14,10 @@ const linkClass =
 
 export default function Footer() {
   return (
-    <footer className="border-t border-ep-blue/12 py-9 px-8 bg-ep-card max-w-300 mx-auto rounded-t-md">
+    <footer className="border-t border-ep-blue/12 py-4 px-8 bg-ep-card max-w-300 mx-auto rounded-t-md">
       <div className="max-w-300 mx-auto flex justify-between items-center flex-wrap gap-4">
         <Link href="/" className="no-underline">
-          <Logo className="h-9 w-auto" />
+          <Logo className="h-20 w-auto" />
         </Link>
         <span className="text-[13px] text-ep-dim">
           Tauranga Electroplaters · 9/61 Maleme Street, Greerton, Tauranga, New
