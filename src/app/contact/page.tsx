@@ -2,10 +2,8 @@
 
 import { useState } from "react";
 import { Hero } from "@/components/hero/Hero";
-import Image from "next/image";
+import { PLACEHOLDER_IMG, PROFILE_JONO } from "@/lib/theme";
 import { TaglineBanner } from "@/components/hero/TaglineBanner";
-
-const JON_IMG = "/jono.jpeg";
 
 function SectionLabel({
   children,
@@ -213,7 +211,7 @@ export default function Contact() {
     email: "jon@tgaelectroplaters.co.nz",
     areas: ["Quotes", "New Business Development", "Engineering", "Technical"],
     bio: "At the end of the day, most people want to go home satisfied with the feeling of achievement. For me, this is hitting productivity goals and delivering quality product to the customer.\n\nMy eye for detail largely fueled by my 20 year career in precision Engineering, specifically CNC machining, programming and project management, gave me insight into various areas of the industry. During these years my extensive experience working with differing companies has given me a unique perspective in understanding and delivering 'As per customer requirements' whilst gathering the relevant detailed specifics, often overlooked, but required by the key person passing on the product or service.\n\nI look forward to working with you on your next project and delivering quality Zinc plating solutions.",
-    photo: JON_IMG,
+    photo: PROFILE_JONO,
   };
 
   const matt = {
@@ -224,7 +222,7 @@ export default function Contact() {
     email: "matt@tgaelectroplaters.co.nz",
     areas: ["Accounts", "Production Scheduling", "Chemistry", "Technical"],
     bio: "What can i help you with? My key responsibilities in the everyday running of Tauranga Electroplaters include, scheduling and system development, accounting, plant chemistry and testing, and of course Zinc electroplating parts.\n\nMy 25 years experience in Mechanical Engineering ranges from CNC machine operation and maintenance to shop-floor and work force management. This has contributed to a good appreciation for workload scheduling including system development, quality control implementation and assessment, health and safety requirements and environment impact obligation monitoring.\n\nIf you need a problem solved, a delivery on time, or a product you can pass onto your customer with confidence, Then you've found the right place, I am here to help lets chat.",
-    photo: "/placeholder.svg",
+    photo: PLACEHOLDER_IMG,
   };
 
   return (

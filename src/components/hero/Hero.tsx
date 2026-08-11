@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
-import { HERO_CONTACT, HERO_IMG } from "@/lib/theme";
+import { HERO_CONTACT, HERO_HOME } from "@/lib/theme";
 
 const HomeTemplate = dynamic(() =>
   import("./HeroHomeTemplate").then((mod) => mod.HeroHomeTemplate),
@@ -33,13 +33,13 @@ export function Hero({ variant }: HeroProps) {
       break;
 
     case "process":
-      bg = HERO_IMG;
+      bg = HERO_HOME;
       content = <ProcessTemplate />;
       minHeightClass = "min-h-100";
       break;
 
     default:
-      bg = HERO_IMG;
+      bg = HERO_HOME;
       content = <HomeTemplate />;
       break;
   }
